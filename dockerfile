@@ -19,6 +19,8 @@ RUN apt-get install samba samba-common smbclient -y
 RUN mkdir -p /data/share
 RUN mkdir -p /data/smb_start
 RUN chmod 777 /data/share/
+RUN mv /etc/samba/smb.conf /etc/samba/smb.conf_alt
+ADD https://raw.github.com/andihapunkt/repetier-server/master/skript/smb.conf /etc/samba/smb.conf
 ADD https://raw.github.com/andihapunkt/repetier-server/master/skript/smb_start.sh /data/smb_start/smb_start.sh
 ADD https://raw.github.com/andihapunkt/repetier-server/master/skript/extcommands.xml /data/database/extcommands.xml
 #RUN mv extcommands.xml /data/database/
