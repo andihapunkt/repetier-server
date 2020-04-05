@@ -17,12 +17,10 @@ RUN mkdir -p /data \
 RUN apt-get install nano -y
 RUN apt-get install samba samba-common smbclient -y
 RUN mkdir -p /data/share
+RUN mkdir -p /data/smb_start
 RUN chmod 777 /data/share/
-ADD https://github.com/andihapunkt/repetier-server/blob/master/extcommands.xml /
-ADD https://github.com/andihapunkt/repetier-server/blob/master/smb_start.sh /
-RUN mkdir /data/smb_start
-COPY extcommands.xml /data/database/
-COPY smb_start /data/smb_start/
+ADD https://github.com/andihapunkt/repetier-server/blob/master/extcommands.xml /data/database/extcommands.xml
+ADD https://github.com/andihapunkt/repetier-server/blob/master/smb_start.sh /data/smb_start/smb_start.sh
 RUN chmod +x /data/database/extcommands.xml
 RUN chmod +x /data/smb_start/smb_start.sh
 
