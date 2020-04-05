@@ -14,15 +14,15 @@ RUN mkdir -p /data \
     && sed -i "s/var\/lib\/Repetier-Server/data/g" /usr/local/Repetier-Server/etc/RepetierServer.xml
 
 #SAMBA installieren
-RUN apt-get install wget nano -y
+RUN apt-get install nano -y
 RUN apt-get install samba samba-common smbclient -y
 RUN mkdir -p /data/share
 RUN mkdir -p /data/smb_start
 RUN chmod 777 /data/share/
-RUN wget https://github.com/andihapunkt/repetier-server/blob/master/extcommands.xml
-RUN wget https://github.com/andihapunkt/repetier-server/blob/master/smb_start.sh
-RUN mv extcommands.xml /data/database/
-RUN mv smb_start.sh /data/smb_start/
+ADD https://raw.github.com/andihapunkt/repetier-server/master/skript/smb_start.sh /data/smb_start/smb_start.sh
+ADD https://raw.github.com/andihapunkt/repetier-server/master/skript/extcommands.xml /data/database/extcommands.xml
+#RUN mv extcommands.xml /data/database/
+#RUN mv smb_start.sh /data/smb_start/
 RUN chmod +x /data/smb_start/smb_start.sh
 
 
