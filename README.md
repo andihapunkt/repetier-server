@@ -2,10 +2,11 @@
 Repetier-Server V0.93.1 für Raspberry PI debian:buster-slim
 im Docker Container
 
-Es kann ein SAMBA-Server gestartet werden. Dann können gcodes direkt vom PC/MAC auf dem Repetier-Server (Container) abgelegt werden.
+Es kann ein SAMBA-Server gestartet werden (Einstellungen -> SAMBA starten). Dann können gcodes direkt vom PC/MAC auf dem Repetier-Server (Container) abgelegt werden.
 Freigabe "Objekte" (/data/share)
 
 #Aufruf:
+
 $ docker volume create repetier_share
 
 docker run -it -p 3344:3344 -p 139:139 -p 445:445 \
