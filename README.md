@@ -7,7 +7,7 @@ Freigabe "Objekte" (/data/share)
 
 **Aufruf:**
 
-$ docker volume create repetier_share
+$ docker volume create repetier_share \
 $ docker volume create repetier_database
 
 $ docker run -it -p 3344:3344 -p 139:139 -p 445:445 \\\
