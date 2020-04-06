@@ -9,7 +9,7 @@ Freigabe "Objekte" (/data/share)
 
 $ docker volume create repetier_share
 
-docker run -it -p 3344:3344 -p 139:139 -p 445:445 \
+$ docker run -it -p 3344:3344 -p 139:139 -p 445:445 \
 -v /docker/repetier/configs:/data/configs \
 -v /docker/repetier/licenses:/data/licenses \
 -v /docker/repetier/logs:/data/logs \
