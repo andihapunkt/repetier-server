@@ -25,6 +25,7 @@ ADD https://raw.github.com/andihapunkt/repetier-server/master/skript/smb_start.s
 ADD https://raw.github.com/andihapunkt/repetier-server/master/skript/extcommands.xml /data/database/extcommands.xml
 RUN chmod +x /data/smb_start/smb_start.sh
 
+VOLUME /data/share/
 
 EXPOSE 139 445 3344
 
