@@ -6,7 +6,21 @@ Es kann ein SAMBA-Server gestartet werden. Dann können gcodes direkt vom PC/MAC
 Freigabe "Objekte" (/data/share)
 
 #Aufruf:
-$ docker run -it -p 3344:3344 -v /docker/repetier:/data --privileged --restart=always --name repetier-server andihapunkt/repetier-server:tag
+$ docker volume create repetier_share
+
+docker run -it -p 3344:3344 -p 139:139 -p 445:445 \
+-v /docker/repetier/configs:/data/configs \
+-v /docker/repetier/licenses:/data/licenses \
+-v /docker/repetier/logs:/data/logs \
+-v /docker/repetier/lua:/data/lua \
+-v /docker/repetier/printer:/data/printer \
+-v /docker/repetier/projects:/data/projects \
+-v /docker/repetier/reports:/data/reports \
+-v /docker/repetier/tmp:/data/tmp \
+-v repetier_share:/data/share \
+--privileged --restart=always --name repserver repetierserver
+
+
 
 Version 1.1   SAMBA Server kann im Repetier-Server (Einstellungen) gestartet werden.
 
