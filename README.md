@@ -8,8 +8,9 @@ Freigabe "Objekte" (/data/share)
 **Aufruf:**
 
 $ docker volume create repetier_share
+$ docker volume create repetier_database
 
-$ docker run -it -p 3344:3344 -p 139:139 -p 445:445
+$ docker run -it -p 3344:3344 -p 139:139 -p 445:445 \\\
 -v /docker/repetier/configs:/data/configs \\\
 -v /docker/repetier/licenses:/data/licenses \\\
 -v /docker/repetier/logs:/data/logs \\\
@@ -19,7 +20,9 @@ $ docker run -it -p 3344:3344 -p 139:139 -p 445:445
 -v /docker/repetier/reports:/data/reports \\\
 -v /docker/repetier/tmp:/data/tmp \\\
 -v repetier_share:/data/share \\\
---privileged --restart=always --name repserver repetierserver
+-v repetier_database:/data/database \\\
+--privileged --restart=always --name repetier_server1.10 repetierserver
+
 
 
 
